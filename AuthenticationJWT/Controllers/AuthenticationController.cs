@@ -10,15 +10,15 @@ namespace AuthenticationJWT.Controllers
     {
         [HttpPost]
         [Route("signIn")]
-        public IActionResult SignIn(Authenticate authenticate)
+        public IActionResult SignIn(User user)
         {
             if (!ModelState.IsValid) return BadRequest();
-            else return Ok(authenticate);
+            else return Ok(user);
         }
 
         [HttpPost]
         [Route("signOut")]
-        public IActionResult SignOut(Authenticate authenticate)
+        public IActionResult SignOut(User user)
         {
             if (!ModelState.IsValid) return BadRequest();
             else return Ok("deslogado.");
