@@ -12,9 +12,9 @@ namespace AuthenticationJWT.Controllers
     public class AuthenticationController : ControllerBase
     {
         [HttpPost]
-        [Route("signIn")]
+        [Route("authenticate")]
         [AllowAnonymous]
-        public ActionResult<object> SignInAsync([FromBody]User model)
+        public ActionResult<object> Authenticate([FromBody]User model)
         {
             if (!ModelState.IsValid) return BadRequest();
 
@@ -26,14 +26,6 @@ namespace AuthenticationJWT.Controllers
             var token = TokenServices.GenerateToken(user); //gerar token com base no user.
 
             return new { user, token }; //Retorna dados
-        }
-
-        [HttpPost]
-        [Route("signOut")]
-        public IActionResult SignOut(User user)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-            else return Ok("deslogado.");
         }
     }
 }
