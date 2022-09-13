@@ -18,13 +18,11 @@ namespace AuthenticationJWT.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-          
             var user = UserRepository.Get(model.Username, model.Password); //buscar usuário na base de dados.
             if (user == null)
                 return NotFound(new { message = "usuário não encontrado." }); //verifica se o usuário existe.
 
             user.Password = ""; //ocultar o password.
-
             var token = TokenServices.GenerateToken(user); //gerar token com base no user.
 
             return new { user, token }; //Retorna dados
