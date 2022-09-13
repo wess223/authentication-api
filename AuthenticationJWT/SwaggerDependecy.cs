@@ -8,7 +8,7 @@ namespace AuthenticationJWT
         {
             builder.Services.AddSwaggerGen(x =>
             {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo Authentication and Authorization API", Version = "v1" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo Auth API", Version = "v1" });
                 x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef') Use api/authentication/signIn",
